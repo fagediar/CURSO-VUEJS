@@ -6,7 +6,7 @@ new Vue({
       name: 'Bitcoin',
       img: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
       changePercent: 5,
-      prices : [8055, 7900, 8200, 9000, 10000, 10500, 11000],
+      
 
       pricesWithDays:[
       {day: 'lunes' ,     value:8055},
@@ -16,7 +16,15 @@ new Vue({
       {day: 'viernes' ,   value:8400},
       {day: 'sabado' ,    value:8400},
       {day: 'domingo' ,   value:8400}
-      ]
+      ],
+
+      showPrices: false
     }
-  }
+  },
+
+  methods: {
+    toggleShowPrices () {
+      this.showPrices = !this.showPrices
+    }
+  },
 })
