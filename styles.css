@@ -16,6 +16,12 @@
 .orange {
   color: orange;
 }
+.blue {
+  color: blue;
+}
+.violet {
+  color: blueviolet;
+}
 
 .uppercase {
   text-transform: uppercase
