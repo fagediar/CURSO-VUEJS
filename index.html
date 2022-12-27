@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div id="app">
+  <div id="app" v-bind:style="{background: '#' + color}">
     <img 
     v-on:mouseover="toggleShowPrices" 
     v-on:mouseout="toggleShowPrices" 
@@ -28,7 +28,7 @@
 
     <ul v-show=showPrices>
       <li 
-      v-bind:class="{blue: p.value == price, violet: p.value > price, green: p.value < price }"
+      v-bind:class="{blue: p.value == price, red: p.value > price, green: p.value < price }"
       v-for="(p,i) in pricesWithDays" 
       v-bind:key="p.day">
          {{i}} -{{ p.day }} -{{ p.value}}
