@@ -11,6 +11,8 @@ Vue.component('CoinDetail' , {
   methods: {
     toggleShowPrices () {
       this.showPrices = !this.showPrices
+      this.$emit('change-color',
+      this.showPrices ? '33FF84' : '08FAD9')
     }
   },
 
@@ -19,7 +21,7 @@ Vue.component('CoinDetail' , {
         return `${this.coin.name} - ${this.coin.symbol}`
     },
 
-    converteValue () {
+    convertedValue () {
       if (!this.value) {
         return 0
       }
@@ -44,11 +46,12 @@ Vue.component('CoinDetail' , {
       <span v-if= "coin.changePercent >0">👍</span>
       <span v-else-if="coin.changePercent < 0">👎</span>
       <span v-else> 👌</span>
-      <span v-on:click="toggleShowPrices"></span>
-        {{ showPrices ? '🙈':'🙉'}}
+
+      <span v-on:click="toggleShowPrices">
+        {{ showPrices ? '🙈':'🙉'}}</span>
     </h1>
     <input type="number" v-model="value">
-    <span>{{ converteValue }}</span>
+    <span>{{ convertedValue }}</span>
     <ul v-show=showPrices>
       <li 
       v-bind:class="{blue: p.value == coin.price, red: p.value > coin.price, green: p.value < coin.price }"
@@ -83,25 +86,29 @@ new Vue({
           ],
       },
       
-      color: '4f4f4f'
+      color: 'f4f4f4'
       
       
       
-
-     
+      
+      
     }
   },
+  
+    methods: {
+      updateColor (color) {
+        this.color = color || this.color
+          .split('') 
+          .reverse() 
+          .join('')
+     
+       
+      }
+    },
+  })
 
   
 
 
     
   
-
-  //methods: {
-    //toggleShowPrices () {
-     // this.showPrices = !this.showPrices
-      //this.color= this.color.split('') . reverse() . join('')
-    //}
-  //},
-})
