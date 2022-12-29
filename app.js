@@ -52,6 +52,10 @@ Vue.component('CoinDetail' , {
     </h1>
     <input type="number" v-model="value">
     <span>{{ convertedValue }}</span>
+
+    <slot name= "text"></slot>
+    <slot name= "link"></slot>
+
     <ul v-show=showPrices>
       <li 
       v-bind:class="{blue: p.value == coin.price, red: p.value > coin.price, green: p.value < coin.price }"
