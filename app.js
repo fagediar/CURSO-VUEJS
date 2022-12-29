@@ -28,7 +28,15 @@ Vue.component('CoinDetail' , {
       return this.value / this.coin.price
     }
   },
+  created () {
+    console.log('Created CoinDetail...')
+  },
 
+  mounted() {
+    console.log('Mounted CoinDetail...')
+  },
+      
+   
 
 
   template: `
@@ -92,12 +100,20 @@ new Vue({
       
       color: 'f4f4f4'
       
-      
-      
-      
-      
     }
   },
+
+  created () {
+    console.log('Created')
+  },
+
+  mounted() {
+    console.log('Mounted')
+  },
+      
+      
+      
+      
   
     methods: {
       updateColor (color) {
